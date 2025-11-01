@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="title">這是標題</h1>
+    <button id="myButton">點我改變標題</button>
+    <script>
+        //  document.addEventListener("DOMContentLoaded", function () {
+        //         const titleElement = document.querySelector("#title");
+        //         const buttonElement = document.querySelector("#myButton");
+
+        //         // 設置標題顏色
+        //         titleElement.style.color = "blue";
+
+        //         buttonElement.addEventListener("click", function () {
+        //             titleElement.textContent = "標題已被改變！";
+        //         });
+        //     });
+
+        document.getElementById("myButton").addEventListener("click", function () {
+            document.getElementById("title").textContent = "標題已被改變！";
+        });
+    </script>
+</body>
+
+</html>

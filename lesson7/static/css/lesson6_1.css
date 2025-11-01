@@ -1,0 +1,25 @@
+body {
+    font-family: sans-serif;
+    margin: 20px;
+}
+
+header {
+    background-color: #f0f0f0;
+    padding: 10px;
+    text-align: center;
+}
+
+footer {
+    margin-top: 50px;
+    text-align: center;
+    color: #888;
+}
+
+.content {
+    margin-top: 20px;
+}
+
+.vip {
+    color: gold;
+    font-weight: bold;
+}

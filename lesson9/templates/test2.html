@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function mockFetch(isSuccess) {
+            console.log("店員：開始去後台拿資料...");
+            // return new Promise(function (resolve, reject) {
+            return new Promise(function (resolve, isSuccess) {
+                setTimeout(function () {
+                    if (isSuccess) {
+                        resolve(" { 'data': '這是房價資料' } ");
+                    } else {
+                        reject("錯誤：伺服器 500 (壞掉了)");
+                    }
+                }, 2000);
+            });
+        }
+
+        async function getMyData() {
+            console.log("1. 函式開始執行，準備 'try'...");
+            try {
+                let data = await mockFetch(false)
+                // 只有在 await 成功後，才會執行到這行
+                console.log("3. (2秒後) 成功了！資料是：", data);
+            } catch (error) {
+                console.log("3. (2秒後) 失敗了... 原因是：", error);
+            }
+
+            console.log("4. 函式執行完畢。")
+
+        }
+
+        console.log("A. 準備呼叫 getMyData()...");
+        getMyData(); // 呼叫它
+        console.log("B. 程式碼繼續往下跑... (不會等 getMyData 完成)");
+    </script>
+</body>
+
+</html>

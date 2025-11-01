@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    {% block head %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {# 這裏放的是註解 #}
+    <title>{% block title%}{% endblock%}</title>
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/lesson6_1.css') }}" />
+    {% endblock %}
+</head>
+
+<body>
+
+    <header>
+        {% block header %}
+        xxxxxxxx
+        {% endblock %}
+    </header>
+
+    <div class="content">
+        {% block content%}
+
+        {% endblock %}
+    </div>
+
+    <footer>
+        <p>&copy; 2025 我的程式課程</p>
+    </footer>
+    {% block js %}
+    {% endblock %}
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+{% extends "base1.html" %}
+
+{% block title%}
+{{ title }}
+{% endblock %}
+
+{% block header %}
+<h1>我的網站</h1>
+{% endblock %}
+
+{% block content %}
+<ul>
+    {% for user in user_list %}
+    <li>{{ user["name"] }}</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
+
+
+{% block js %}
+<script src="{{ url_for('static',filename='js/lesson6_1.js') }}"></script>
+{% endblock %}
+
+{% block head %}
+{{ super() }}
+<link type="text/css" rel="stylesheet" href="{{ url_for('static',filename='css/lesson6_2.css')}}" />
+{% endblock %}

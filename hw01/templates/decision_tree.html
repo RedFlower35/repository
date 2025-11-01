@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title%}
+{{ algorithm }}
+{% endblock %}
+
+{% block header %}
+<h1>我的網站</h1>
+{% endblock %}
+
+
+{% block content %}
+<h1>決策樹分類 <img src="../static/img/tree.jpeg" alt=""></h1>
+<div class="title-container">
+    <h1 class="title-text">決策樹分類</h1>
+    <img class="title-image" src="../static/img/tree.jpeg" alt="決策樹圖片">
+</div>
+{% endblock %}
+
+
+
+<ul>
+    {% for app in applications %}
+    <li>{{ app }}</li>
+    {% endfor %}
+</ul>
+<br>
+<ul>
+    {% for pro in pros %}
+    <li>{{ pro }}</li>
+    {% endfor %}
+</ul>
+<br>
+<p>
+    機器學習中，<b>決策樹</b>是一個預測模型；他代表的是對象屬性與對象值之間的一種映射關係。樹中每個節點表示某個對象，而每個分叉路徑則代表某個可能的屬性值，而每個葉節點則對應從根節點到該葉節點所經歷的路徑所表示的對象的值。決策樹僅有單一輸出，若欲有複數輸出，可以建立獨立的決策樹以處理不同輸出。
+    數據挖掘中決策樹是一種經常要用到的技術，可以用於分析數據，同樣也可以用來作預測。
+</p>
+
+<p>從數據產生決策樹的機器學習技術叫做<b>決策樹學習</b>，通俗說就是<b>決策樹</b>。</p>
+<br>
+一個決策樹包含三種類型的節點：
+
+<ul>
+    <li>決策節點：通常用矩形框來表示</li>
+    <li>機會節點：通常用圓圈來表示</li>
+    <li>終結點：通常用三角形來表示</li>
+</ul>
+
+<img src="../static/img/Decision-Tree-Elements.png" alt="">
+<p>
+    決策樹學習也是數據挖掘中一個普通的方法。在這裡，每個決策樹都表述了一種樹型結構，它由它的分支來對該類型的對象依靠屬性進行分類。每個決策樹可以依靠對源資料庫的分割進行數據測試。這個過程可以遞歸式的對樹進行修剪。
+    當不能再進行分割或一個單獨的類可以被應用於某一分支時，遞歸過程就完成了。另外，隨機森林分類器將許多決策樹結合起來以提升分類的正確率。
+</p>
+{% endblock %}
+{% block head %}
+{{ super() }}
+<link type="text/css" rel="stylesheet" href="{{ url_for('static',filename='css/decission_tree.css')}}" />
+{% endblock %}

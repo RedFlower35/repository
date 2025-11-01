@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的響應式網站</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #444;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            padding: 1rem;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background-color: #555;
+        }
+
+        .container {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>歡迎來到我的網站</h1>
+        <p>這是一個響應式設計的靜態網頁</p>
+    </header>
+
+    <nav>
+        <a href="#">首頁</a>
+        <a href="#">關於我們</a>
+        <a href="#">服務項目</a>
+        <a href="#">聯絡方式</a>
+    </nav>
+
+    <div class="container">
+        <h2>我們的特色</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>快速</h3>
+                <p>我們的網站載入速度極快，提供最佳使用體驗。</p>
+            </div>
+            <div class="card">
+                <h3>響應式</h3>
+                <p>無論手機、平板或桌機，都能完美呈現。</p>
+            </div>
+            <div class="card">
+                <h3>美觀</h3>
+                <p>設計簡潔大方，讓人一眼愛上。</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2025 我的網站. 保留所有權利。
+    </footer>
+</body>
+
+</html>

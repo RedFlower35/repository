@@ -1,0 +1,46 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.qa-container {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 500px;
+}
+
+.toggle-button {
+    padding: 10px 15px;
+    font-size: 1rem;
+    cursor: pointer;
+    border: 1px solid #007BFF;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 5px;
+    margin-top: 1rem;
+}
+
+.toggle-button:hover {
+    background-color: #0056b3;
+}
+
+/* 關鍵：預設情況下，答案內容是隱藏的 */
+.answer-content {
+    display: none;
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: #e9f5ff;
+    border-left: 5px solid #007BFF;
+}
+
+/* 關鍵：當答案區塊擁有 'visible' 這個 class 時，它會被顯示出來 */
+.answer-content.visible {
+    display: block;
+}

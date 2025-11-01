@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Chart.js 散點圖(Scatter) 範例</title>
+    <style type="text/css">
+        /*給圖表一個固定的繪圖區域*/
+        .chart-container {
+            position: relative;
+            width: 80vw;
+            height: 600px;
+            margin: 20px auto;
+            /*置中*/
+            border: 1px solid #ddd;
+        }
+    </style>
+    <script>
+        // debugger;
+        document.addEventListener('DOMContentLoaded', function () {
+            // DOM 載入完成後執行的程式碼會放在這裡
+
+            console.log("已經可以載入 chart.js物件");
+
+            // 3. js: 抓取畫布和 2D工具箱
+            const ctx = document.getElementById('myChartCanvas').getContext('2d');
+            // console.log(ctx);
+
+            // 散點圖的資料
+            const studentData = [
+                { x: 158, y: 55 },
+                { x: 162, y: 58 },
+                { x: 165, y: 62 },
+                { x: 170, y: 65 },
+                { x: 173, y: 70 },
+                { x: 175, y: 68 },
+                { x: 180, y: 75 },
+                { x: 182, y: 78 }
+            ];
+
+            // 建立圖表
+            const myScatterChart = new Chart(ctx, {
+                // 指定圖表類型為 scatter
+                type: 'scatter',
+
+                //data物件，存放資料
+                data: {
+                    datasets: [
+                        {
+                            label: '學生身高體重',
+                            data: studentData,
+                            backgroundColor: 'purple', //點的顏色
+                            borderColor: 'darkPurple',
+                            pointRadius: 8, //點的大小
+                            pointHoverRadius: 10 //滑鼠移上去時的點的大小
+                        },
+                        {
+                            label: '學生身高體重(第二組)',
+                            data: [
+                                { x: 158, y: 55 },
+                                { x: 173, y: 65 },
+                                { x: 180, y: 85 },
+                                { x: 163, y: 66 },
+                                { x: 155, y: 60 },
+                                { x: 190, y: 90 },
+                                { x: 185, y: 85 },
+                                { x: 176, y: 72 }
+
+                            ],
+                            backgroundColor: 'green', //點的顏色
+                            borderColor: 'darkGreen',
+                            pointRadius: 8, //點的大小
+                            pointHoverRadius: 10 //滑鼠移上去時的點的大小
+                        }
+                    ]
+                },
+                //options物件,設定圖表的外觀
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    //座標軸設定
+                    scales: {
+                        x: {
+                            type: 'linear',
+                            position: 'bottom',
+                            title: {
+                                display: true,
+                                text: '身高 (cm)',
+                                font: { size: 16 }
+                            }
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: '體重 (kg)',
+                                font: { size: 16 }
+                            }
+
+                        }
+                    },
+                    // 插件(plugins) 設定，例如標題和提示
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: '學生身高體重散點圖',
+                            font: { size: 20 },
+                            padding: 20
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function (context) {
+                                    //console.log(context);
+                                    let label = context.dataset.label || '';
+                                    let xVal = context.parsed.x;
+                                    let yVal = context.parsed.y;
+                                    return `${label}: ${xVal} cm, ${yVal} kg`
+                                }
+                            }
+                            // enabled: true
+                        }
+                    }
+                }
+
+            })
+
+
+
+        });
+
+
+
+        // const ctx = document.getElementById('myChart');
+        // console.log("Hello! Javascript!")
+        // debugger;
+        // new Chart(ctx, {
+        //     type: 'bar',
+        //     data: {
+        //         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        //         datasets: [{
+        //             label: '# of Votes',
+        //             data: [12, 19, 3, 5, 2, 3],
+        //             borderWidth: 1
+        //         }]
+        //     },
+        //     options: {
+        //         responsive: false,
+        //         maintainAspectRatio: false,
+        //         scales: {
+        //             y: {
+        //                 beginAtZero: true
+        //             }
+        //         }
+        //     }
+        // });
+    </script>
+</head>
+
+<body>
+    <h1>範例：學生身高 VS 體重 散點圖</h1>
+
+    <div class="chart-container">
+        <canvas id="myChartCanvas" width="800" height="500"></canvas>
+    </div>
+
+    <script src="{{ url_for('static',filename='vendor/chart.js/chart.umd.js') }}"></script>
+
+
+
+</body>
+
+</html>
